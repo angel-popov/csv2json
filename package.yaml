@@ -1,0 +1,60 @@
+name:                csv2json
+version:             0.1.0.0
+github:              "angelpopov/csv2json"
+license:             BSD3
+author:              "Angel Popov"
+maintainer:          "angelpopov@yahoo.com"
+copyright:           "na"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            hello
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/angelpopov/csv2json#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - mtl
+    - cassava
+    - bytestring
+    - aeson
+    - aeson-pretty
+    - utf8-string
+    - vector
+    - text
+    - parsec
+
+
+executables:
+  csv2json-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - csv2json
+    - mtl
+
+tests:
+  csv2json-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - csv2json
